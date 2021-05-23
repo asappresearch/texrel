@@ -1,0 +1,7 @@
+pytest
+mock
+mypy
+flake8
+tox
+pytest-coverage
+flake8_formatter_junit_xml

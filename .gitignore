@@ -1,13 +1,28 @@
 # Byte-compiled / optimized / DLL files
+batches/batch_debug.sh
 __pycache__/
 *.py[cod]
 *$py.class
+.pytest_cache
+
+gitdiff.txt
+gitlog.txt
+
+~seed.txt
+tmp/
+tmp_old/
+tmp_prog/
+plots_tmp/
+tmp_plots/
+hists/
+kill/
 
 # C extensions
 *.so
 
 # Distribution / packaging
 .Python
+env/
 build/
 develop-eggs/
 dist/
@@ -23,7 +38,6 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-MANIFEST
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -45,7 +59,6 @@ nosetests.xml
 coverage.xml
 *.cover
 .hypothesis/
-.pytest_cache/
 
 # Translations
 *.mo
@@ -54,7 +67,6 @@ coverage.xml
 # Django stuff:
 *.log
 local_settings.py
-db.sqlite3
 
 # Flask stuff:
 instance/
@@ -81,14 +93,13 @@ celerybeat-schedule
 # SageMath parsed files
 *.sage.py
 
-# Environments
+# dotenv
 .env
+
+# virtualenv
 .venv
-env/
 venv/
 ENV/
-env.bak/
-venv.bak/
 
 # Spyder project settings
 .spyderproject
@@ -102,3 +113,57 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+*.dat
+game1/model_saves/
+
+condap4
+Miniconda*.sh
+
+# *.pdf
+*.out
+*.aux
+
+/setenv.sh
+/setenv_aws.sh
+/setenv_mac.sh
+
+html/
+runs/
+mnist/
+
+_in
+_out
+_prep
+_processing
+_done
+*.gv
+
+batches/
+papers/rnn_ilm_cogsci/upload
+*.blg
+*.zip
+
+pull/
+.vscode
+.pull_excludes.txt
+.push_excludes.txt
+mlruns/
+foo*
+setmlflow.sh
+
+papers/game1/game1.pdf
+papers/rnn_ilm_cogsci/rnn_ilm_acl.pdf
+upload/
+papers/*/*.pdf
+papers/*/*.bbl
+
+MANIFEST
+
+test-results/
+pull_copy/
+jupyter/*.csv
+./*.csv
+
+Library/Caches
+.matplotlib/

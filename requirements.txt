@@ -1,0 +1,9 @@
+matplotlib
+tabletext
+torch
+scipy
+mlflow>=1.13.1
+h5py
+colorama
+sru
+ninja
