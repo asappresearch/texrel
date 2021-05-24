@@ -125,5 +125,6 @@ python ref_task/analysis/texrel/reduce_send_recv.py --direction recv --in-refs t
 python ref_task/analysis/texrel/reduce_e2e.py --out-ref trred015 --in-refs tree043 tree044 tree045 tree046 tree047
 python ref_task/analysis/texrel/reduce_multitask.py --out-ref trred014 --in-refs trmt018 trmt019 trmt020 trmt021 trmt021
 python ref_task/analysis/texrel/reduce_varatts.py --in-csvs traa00[7-9].csv traa01[0-1].csv --out-csv-long varatts_long.csv --out-csv-wide varatts_wide.csv
-# todo: put reduce for section 7 reproduction here
+# following is not actually a reduction, just adds `gen_err` and `ptre` columns:
+python ref_task/analysis/texrel/section7_comp_add_gen_err.py --in-csv trmc015.csv --out-csv trmc015-for-latex.csv  
 ```
