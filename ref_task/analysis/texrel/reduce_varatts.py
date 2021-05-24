@@ -67,15 +67,17 @@ def run(args):
 
     df_by_num_values = pd.DataFrame({'num_values': list(range(3, 10))})
     df_by_num_values = df_by_num_values.set_index('num_values')
+    df_mean_no_index = mean.reset_index()
+    ci95_no_index = ci95.reset_index()
     for i, entity in enumerate(['colors', 'shapes', 'things']):
-        df_entity = mean[mean.entity == entity]
+        df_entity = df_mean_no_index[df_mean_no_index.entity == entity]
         for num_entities in [1, 2, 3]:
             df_ent_num = df_entity[df_entity.num_entities == num_entities]
             df_ent_num = df_ent_num.set_index(['num_values'])
             for value in ['rho', 'prec', 'rec', 'same_acc', 'new_acc']:
                 df_by_num_values[f'{entity}{num_entities}_{value}'] = df_ent_num[value]
     for i, entity in enumerate(['colors', 'shapes', 'things']):
-        df_entity = ci95[mean.entity == entity]
+        df_entity = ci95_no_index[ci95_no_index.entity == entity]
         for num_entities in [1, 2, 3]:
             df_ent_num = df_entity[df_entity.num_entities == num_entities]
             df_ent_num = df_ent_num.set_index(['num_values'])

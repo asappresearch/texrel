@@ -12,7 +12,7 @@ from ulfs import stats_utils, tex_utils
 def reduce(df_l: List[pd.DataFrame], out_csv: str, out_tex: str):
     keep_columns = [
         'send_arch', 'recv_arch', 'b', 't',
-        # 'train_acc',
+        'train_acc',
         'test_same_acc', 'test_same_rho', 'test_same_prec', 'test_same_rec',
         'test_new_acc', 'test_new_rho', 'test_new_prec', 'test_new_rec']
     df_l = [df[keep_columns].copy() for df in df_l]

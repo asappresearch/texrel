@@ -42,7 +42,7 @@ class Sampler(ABC, nn.Module):
 
         eg:
         - REINFORCE => need to implement this, since backprop wont go further than
-          our stochastic samper
+          our stochastic sampler
         - Gumbel, softmax => no need to implement this, since normal backprop will
           go through the sampler anyway
         """
