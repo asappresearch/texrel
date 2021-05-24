@@ -21,7 +21,6 @@ import torch.nn.functional as F
 from ulfs import nn_modules, tensor_utils
 from ref_task.models import conv_models
 from ref_task.models.image_seq_embedder_base import ImageSeqEmbedder
-from ref_task.models.universal_transformer_variant_model import RelationsTransformer
 
 
 class RNNOverCNN(ImageSeqEmbedder):
@@ -393,11 +392,11 @@ class PrototypicalSender(nn.Module):
 
 def build_image_seq_embedder(params, ds_meta, pre_conv, utt_len: int, vocab_size: int) -> ImageSeqEmbedder:
     p = params
-    if p.image_seq_embedder == 'RelationsTransformer':
-        ImageSeqEmbedder = RelationsTransformer
-        assert p.sender_decoder == 'IdentityDecoder'
-    else:
-        ImageSeqEmbedder = globals()[p.image_seq_embedder]
+    # if p.image_seq_embedder == 'RelationsTransformer':
+    #     ImageSeqEmbedder = RelationsTransformer
+    #     assert p.sender_decoder == 'IdentityDecoder'
+    # else:
+    ImageSeqEmbedder = globals()[p.image_seq_embedder]
     grid_planes = pre_conv.get_output_planes(ds_meta.grid_planes)
     if p.sender_negex and not ImageSeqEmbedder.label_aware:
         grid_planes += 1
@@ -410,19 +409,19 @@ def build_image_seq_embedder(params, ds_meta, pre_conv, utt_len: int, vocab_size
         'cnn_max_pooling_size': p.cnn_max_pooling_size,
         'cnn_batch_norm': p.cnn_batch_norm,
     }
-    if ImageSeqEmbedder == RelationsTransformer:
-        model_params['num_heads'] = p.sender_num_heads
-        model_params['num_timesteps'] = p.sender_num_timesteps
-        # no decoder for RelationsTransformer (just use Identity), so
-        # we have to give the desired seq_len and vocab size directly
-        # to the RelationsTransformer, here
-        model_params['out_seq_len'] = utt_len
-        model_params['vocab_size'] = vocab_size
-        # del model_params['cnn_sizes']
-        # del model_params['cnn_max_pooling_size']
-        # del model_params['cnn_batch_norm']
-        del model_params['dropout']
-    elif ImageSeqEmbedder in [RCNN, StackedInputs]:
+    # if ImageSeqEmbedder == RelationsTransformer:
+    #     model_params['num_heads'] = p.sender_num_heads
+    #     model_params['num_timesteps'] = p.sender_num_timesteps
+    #     # no decoder for RelationsTransformer (just use Identity), so
+    #     # we have to give the desired seq_len and vocab size directly
+    #     # to the RelationsTransformer, here
+    #     model_params['out_seq_len'] = utt_len
+    #     model_params['vocab_size'] = vocab_size
+    #     # del model_params['cnn_sizes']
+    #     # del model_params['cnn_max_pooling_size']
+    #     # del model_params['cnn_batch_norm']
+    #     del model_params['dropout']
+    if ImageSeqEmbedder in [RCNN, StackedInputs]:
         model_params['num_rnn_layers'] = p.sender_num_rnn_layers
         if ImageSeqEmbedder == StackedInputs:
             model_params['input_examples'] = ds_meta.M_train
