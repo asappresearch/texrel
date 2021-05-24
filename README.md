@@ -120,10 +120,10 @@ python ref_task/runners/run_measuring_comp_section7.py --ref trmc015 --max-steps
 
 ```
 python ref_task/analysis/texrel/reduce_vs_shapeworld.py --out-ref trred013 --in-refs trbase038 trbase039 trbase040 trbase041 trbase042
-python ref_task/analysis/reduce_send_recv.py --out-ref trsr005 --in-refs trs009 trs010 trs011 trs012 --direction send
-python ref_task/analysis/reduce_send_recv.py --direction recv --in-refs trr010 trr011 trr012 trr013 trr014 --out-ref trs006
+python ref_task/analysis/texrel/reduce_send_recv.py --out-ref trsr005 --in-refs trs009 trs010 trs011 trs012 --direction send
+python ref_task/analysis/texrel/reduce_send_recv.py --direction recv --in-refs trr010 trr011 trr012 trr013 trr014 --out-ref trs006
 python ref_task/analysis/texrel/reduce_e2e.py --out-ref trred015 --in-refs tree043 tree044 tree045 tree046 tree047
 python ref_task/analysis/texrel/reduce_multitask.py --out-ref trred014 --in-refs trmt018 trmt019 trmt020 trmt021 trmt021
-# todo: put reduce for num attributes and values here
+python ref_task/analysis/texrel/reduce_varatts.py --in-csvs traa00[7-9].csv traa01[0-1].csv --out-csv-long varatts_long.csv --out-csv-wide varatts_wide.csv
 # todo: put reduce for section 7 reproduction here
 ```
