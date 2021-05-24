@@ -12,6 +12,36 @@ pip install -r requirements.txt
 
 ## To create the datasets:
 
+If running on a single machine:
+```
+python texrel/create_collection.py --ref macdebug --num-train 32 --num-val-same 32 --num-val-new 32 --num-test-same 32 --num-test-new 32
+python texrel/create_collection.py --ref ords064sc9 --inner-train-pos 64 --inner-train-neg 64 --inner-test-pos 64 --inner-test-neg 64 --num-distractors 0,2 --num-colors 9 --num-shapes 9
+python texrel/create_collection.py --ref ords055sc4 --inner-train-pos 64 --inner-train-neg 64 --inner-test-pos 64 --inner-test-neg 64 --num-distractors 2 --num-colors 4 --num-shapes 4
+python texrel/create_collection.py --ref ords056sc3 --inner-train-pos 64 --inner-train-neg 64 --inner-test-pos 64 --inner-test-neg 64 --num-distractors 2 --num-colors 3 --num-shapes 3
+python texrel/create_collection.py --ref ords057sc5 --inner-train-pos 64 --inner-train-neg 64 --inner-test-pos 64 --inner-test-neg 64 --num-distractors 2 --num-colors 5 --num-shapes 5
+python texrel/create_collection.py --ref ords058sc6 --inner-train-pos 64 --inner-train-neg 64 --inner-test-pos 64 --inner-test-neg 64 --num-distractors 2 --num-colors 6 --num-shapes 6
+python texrel/create_collection.py --ref ords059sc7 --inner-train-pos 64 --inner-train-neg 64 --inner-test-pos 64 --inner-test-neg 64 --num-distractors 2 --num-colors 7 --num-shapes 7
+python texrel/create_collection.py --ref ords060sc8 --inner-train-pos 64 --inner-train-neg 64 --inner-test-pos 64 --inner-test-neg 64 --num-distractors 2 --num-colors 8 --num-shapes 8
+python texrel/create_collection.py --ref ords061sc9 --inner-train-pos 64 --inner-train-neg 64 --inner-test-pos 64 --inner-test-neg 64 --num-distractors 2 --num-colors 9 --num-shapes 9
+python texrel/create_collection.py --ref ords062 --inner-train-pos 64 --inner-train-neg 64 --inner-test-pos 64 --inner-test-neg 64 --num-distractors 2 --hypothesis-generators Relations --available-preps LeftOf
+```
+
+If you have access to a job submission system, that can distribute jobs over multiple machines, then, given you provide a script `ulfs_submit.py`, in the `PATH`, which can be called like `-r [reference] [... other args you can ignore] --  [script path] [script args]`, and which will run in each job `[script path] --ds-ref [reference] [script args]` then you can run instead:
+
+```
+python texrel/create_collection.py --ref macdebug --num-train 32 --num-val-same 32 --num-val-new 32 --num-test-same 32 --num-test-new 32
+python texrel/create_collection_submit.py --ref ords064sc9 --inner-train-pos 64 --inner-train-neg 64 --inner-test-pos 64 --inner-test-neg 64 --num-distractors 0,2 --num-colors 9 --num-shapes 9
+python texrel/create_collection_submit.py --ref ords055sc4 --inner-train-pos 64 --inner-train-neg 64 --inner-test-pos 64 --inner-test-neg 64 --num-distractors 2 --num-colors 4 --num-shapes 4
+python texrel/create_collection_submit.py --ref ords056sc3 --inner-train-pos 64 --inner-train-neg 64 --inner-test-pos 64 --inner-test-neg 64 --num-distractors 2 --num-colors 3 --num-shapes 3
+python texrel/create_collection_submit.py --ref ords057sc5 --inner-train-pos 64 --inner-train-neg 64 --inner-test-pos 64 --inner-test-neg 64 --num-distractors 2 --num-colors 5 --num-shapes 5
+python texrel/create_collection_submit.py --ref ords058sc6 --inner-train-pos 64 --inner-train-neg 64 --inner-test-pos 64 --inner-test-neg 64 --num-distractors 2 --num-colors 6 --num-shapes 6
+python texrel/create_collection_submit.py --ref ords059sc7 --inner-train-pos 64 --inner-train-neg 64 --inner-test-pos 64 --inner-test-neg 64 --num-distractors 2 --num-colors 7 --num-shapes 7
+python texrel/create_collection_submit.py --ref ords060sc8 --inner-train-pos 64 --inner-train-neg 64 --inner-test-pos 64 --inner-test-neg 64 --num-distractors 2 --num-colors 8 --num-shapes 8
+python texrel/create_collection_submit.py --ref ords061sc9 --inner-train-pos 64 --inner-train-neg 64 --inner-test-pos 64 --inner-test-neg 64 --num-distractors 2 --num-colors 9 --num-shapes 9
+python texrel/create_collection_submit.py --ref ords062 --inner-train-pos 64 --inner-train-neg 64 --inner-test-pos 64 --inner-test-neg 64 --num-distractors 2 --hypothesis-generators Relations --available-preps LeftOf
+```
+
+Each call to `create_collection_submit.py` will launch one job for each of the 10 task types, i.e. Colors1, Colors2, Shapes1, etc. Note that for bests results you should provide also a script `ulfs_logs.sh` in the PATH which can be called like `ulfs_logs.sh [reference]`, and which will output the `stdout` of the launched job corresponding to reference `[reference]`. However, if you do not supply this, this will not prevent the jobs being launched.
 
 ## To use the datasets in your code
 
