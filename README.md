@@ -128,3 +128,9 @@ python ref_task/analysis/texrel/reduce_varatts.py --in-csvs traa00[7-9].csv traa
 # following is not actually a reduction, just adds `gen_err` and `ptre` columns:
 python ref_task/analysis/texrel/section7_comp_add_gen_err.py --in-csv trmc015.csv --out-csv trmc015-for-latex.csv  
 ```
+
+## To run unit-tests
+
+```
+pytest -v .
+```
