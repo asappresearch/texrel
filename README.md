@@ -43,6 +43,10 @@ python texrel/create_collection_submit.py --ref ords062 --inner-train-pos 64 --i
 
 Each call to `create_collection_submit.py` will launch one job for each of the 10 task types, i.e. Colors1, Colors2, Shapes1, etc. Note that for bests results you should provide also a script `ulfs_logs.sh` in the PATH which can be called like `ulfs_logs.sh [reference]`, and which will output the `stdout` of the launched job corresponding to reference `[reference]`. However, if you do not supply this, this will not prevent the jobs being launched.
 
+### Dataset md5sums
+
+`md5sum`s for each datafile can be found at [md5sums.txt](md5sums.txt)
+
 ## To use the datasets in your code
 
 - you will need to import `texrel.dataset_runtime`, and create an instance of `texrel.dataset_runtime.TexRelDataset`
