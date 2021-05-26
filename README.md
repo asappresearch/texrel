@@ -55,6 +55,9 @@ Each call to `create_collection_submit.py` will launch one job for each of the 1
 
 ### Comparison with Shapeworld
 
+Pre-requisites:
+- clone the `emergent-communications` branch of the LSL repo fork at [https://github.com/asappresearch/lsl/tree/emergent-communications](https://github.com/asappresearch/lsl/tree/emergent-communications), from the parent folder of the `texrel` repo. That is after the fork, should have a folder containing both this `texrel` repo, and the forked `lsl` repo. Then from within the `texrel` folder do:
+
 ```
 python ref_task/runners/run_shapeworld_texrel_comp.py --ref trbase043 --early-stop-metric val_same_acc --batch-size 32 --seed-base 123
 python ref_task/runners/run_shapeworld_texrel_comp.py --ref trbase044 --early-stop-metric val_same_acc --batch-size 32 --seed-base 124
@@ -141,4 +144,10 @@ pytest -v .
 
 ## LSL repo fork
 
-The code changes to LSL, in order to enable use the study of emergent communications using it, will be made available at [https://github.com/asappresearch/lsl/tree/emergent-communications](https://github.com/asappresearch/lsl/tree/emergent-communications).
+The code changes to LSL, in order to enable use the study of emergent communications using it, will be made available at [https://github.com/asappresearch/lsl/tree/emergent-communications](https://github.com/asappresearch/lsl/tree/emergent-communications). To run this code, please see the section above. Or else, to run standalone, you can do e.g.:
+
+```
+git clone git@github.com:asappresearch/lsl.git -b emergent-communications
+cd lsl/shapeworld
+python lsl/train.py --cuda --infer_hyp --hypo_lambda 1.0 --batch_size 100 --seed 123 --e2e-emergent-communications --data_dir /gfs/nlp/hp/data exp/l3 --backbone conv4 --epochs 50
+```
