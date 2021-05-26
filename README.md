@@ -141,4 +141,4 @@ pytest -v .
 
 ## LSL repo fork
 
-The code changes to LSL, in order to enable use the study of emergent communications using it, will be made available at [https://github.com/asappresearch/lsl](https://github.com/asappresearch/lsl).
+The code changes to LSL, in order to enable use the study of emergent communications using it, will be made available at [https://github.com/asappresearch/lsl/tree/emergent-communications](https://github.com/asappresearch/lsl/tree/emergent-communications).
