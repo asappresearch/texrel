@@ -138,3 +138,7 @@ python ref_task/analysis/texrel/section7_comp_add_gen_err.py --in-csv trmc015.cs
 ```
 pytest -v .
 ```
+
+## LSL repo fork
+
+The code changes to LSL, in order to enable use the study of emergent communications using it, will be made available at [https://github.com/asappresearch/lsl](https://github.com/asappresearch/lsl).
