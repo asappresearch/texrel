@@ -1,5 +1,6 @@
 # texrel
-texrel
+
+Code for paper "TexRel: a Green Family of Datasets for Emergent Communications on Relations", Perkins, 2021, https://arxiv.org/abs/2105.12804
 
 ## Pre-requisites
 
