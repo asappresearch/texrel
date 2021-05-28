@@ -152,3 +152,18 @@ git clone git@github.com:asappresearch/lsl.git -b emergent-communications
 cd lsl/shapeworld
 python lsl/train.py --cuda --infer_hyp --hypo_lambda 1.0 --batch_size 100 --seed 123 --e2e-emergent-communications --data_dir /gfs/nlp/hp/data exp/l3 --backbone conv4 --epochs 50
 ```
+
+## Citing
+
+If you find the TexRel code useful, please cite:
+
+```
+@misc{perkins2021texrel,
+      title={TexRel: a Green Family of Datasets for Emergent Communications on Relations}, 
+      author={Hugh Perkins},
+      year={2021},
+      eprint={2105.12804},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+```
