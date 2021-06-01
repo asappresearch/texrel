@@ -10,6 +10,11 @@ pip install -e .
 pip install -r requirements.txt
 ```
 
+## Download the data
+
+- https://drive.google.com/drive/folders/1znT7i-Lw5U9_5EpitlTpB2a6LOy1K5zl?usp=sharing
+- (there are some projects on the internet that facilitate downloading from google drive, directly to a linux instance, e.g. google 'access google drive from ubuntu commandline')
+
 ## To create the datasets:
 
 If running on a single machine:
