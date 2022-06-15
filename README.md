@@ -13,8 +13,7 @@ pip install -r requirements.txt
 
 ## Download the data
 
-- https://drive.google.com/drive/folders/1znT7i-Lw5U9_5EpitlTpB2a6LOy1K5zl?usp=sharing
-- (there are some projects on the internet that facilitate downloading from google drive, directly to a linux instance, e.g. google 'access google drive from ubuntu commandline')
+- Download and untar https://public-dataset-model-store.awsdev.asapp.com/hp/papers/texrel/texrel.tar
 
 ## To create the datasets:
 
